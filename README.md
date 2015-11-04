@@ -18,10 +18,10 @@ When you run `ruby 2_speakers.rb` you should see 10 lines of output, formatted l
     Waters Nayeli, annabel_walter@gmail.com, 415-793-2549
     ...
 
-    
+
 This output should _NOT_ be hardcoded. It should change for every run of the file!
 
-To achieve this goal, you will need to familiarize yourself with the `ffaker` gem. 
+To achieve this goal, you will need to familiarize yourself with the `ffaker` gem.
 
 First, install the gems in your `Gemfile`. Simply run:  
 ```bash
@@ -67,7 +67,7 @@ For more info about `bundler`, try running `bundle --help`.
 ### 3. Motivational Talks
 Printing to the terminal is all very nice, but we want to actually be able to play with the data. Let's convert our talks into _objects_. When you run `3_talks_data.rb` you should see something along the lines of:
 
-    
+
     Speakers:
     {first: "Reichel", last: "Theresia", email: "giovani@gmail.com"}
     {first: "Botsford", last: "Vicenta", email: "ernestine@gmail.com"}
@@ -82,7 +82,7 @@ Printing to the terminal is all very nice, but we want to actually be able to pl
 
 
 ### 4. Model Speakers
-Now let's take it up a notch. Instead of printing out objects, let's print out _instances_ of class `Speaker`. When I run `ruby 4_model_speakers.rb`, I expect to see the guts of our objects printed out like this:
+Now let's take it up a notch. Instead of printing out objects, let's print out _instances_ of class `Speaker`. Modify `4_model_speakers.rb` so that when I run `ruby 4_model_speakers.rb`, you see the guts of our objects printed out like this:
 
     #<Speaker:0x007fa86225cfa8 @first_name="Herman", @last_name="Delia", @email="charlene@yahoo.com", @id=1>
     #<Speaker:0x007fa86225cc60 @first_name="Kessler", @last_name="George", @email="bernie@hotmail.com", @id=2>
@@ -90,8 +90,11 @@ Now let's take it up a notch. Instead of printing out objects, let's print out _
 You'll need to modify the code in `models/speaker.rb` so that you can do something like this in `4_model_speakers.rb`:
 
 ```ruby
-puts Speaker.new({first: "Reichel", last: "Theresia", email: "giovani@gmail.com"})
+speaker = Speaker.new({first: "Reichel", last: "Theresia", email: "giovani@gmail.com"})
+p speaker
 ```
+>***A note on `p` vs `puts`:***<br>
+`puts` calls `to_s` on the object and generally returns a readable version of the object. `p` is equivalent to `puts`, but with the inspect method called instead of the `to_s`. So with `p` we will see the difference between "2" and 2. This method is better for debugging.
 
 ### 5. Hacktive Record
 Now we're going to play with a super-simplified version of Active Record I've dubbed "HacktiveRecord". HacktiveRecord will give our models the ability to `save`, `create` and find `all` records (or "instances") of our class.
@@ -166,7 +169,7 @@ rails c
 **Confirm that your model exists**  
 ```ruby
 Talk
- #=> Talk(id: integer, topic: string, duration: integer, created_at: datetime, updated_at: datetime) 
+ #=> Talk(id: integer, topic: string, duration: integer, created_at: datetime, updated_at: datetime)
 ```
 
 (You may need to "connect" to your database in the rails console. Just follow the instructions.)
