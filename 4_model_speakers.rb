@@ -8,5 +8,6 @@ require './models/speaker.rb'
             email: FFaker::Internet.free_email
           }
   speaker = Speaker.create(args)
-  p speaker
 end
+
+p Speaker.all
