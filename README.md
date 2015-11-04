@@ -6,7 +6,7 @@ When you run `ruby 1_hello.rb` you should see the following printed to your term
 
     "Hello, my name is Generic Student and I live at 123 Rudimentary Dr, Oakland California. I lurv geraniums!"
 
-Modify the output to use __string interpolation__, and your own name, address, and most favoritest thing in teh world.
+Modify the output to use __string interpolation__, and your own name, address, and most favoritest thing in the world.
 
 Bonus: print it ten times.
 
