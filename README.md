@@ -8,12 +8,12 @@ When you run `ruby 1_hello.rb` you should see the following printed to your term
 
     "Hello, my name is Generic Student and I live at 123 Rudimentary Dr, Oakland California. I lurv geraniums!"
 
-Modify the output to use __string interpolation__, and your own name, address, and most favoritest thing in the world.
+Modify the output to use __string interpolation__ (hint: `#{first_name}`), and your own name, address, and most favoritest thing in the world.
 
 Bonus: print it ten times.
 
 ### 2. Motivational Speakers
-When you run `ruby 2_speakers.rb` you should see 10 lines of output, formatted like so:
+Modify `2_speakers.rb` so that when you run `ruby 2_speakers.rd` you see 10 lines of output, formatted like so:
 
     Reichel Theresia, giovani@gmail.com, 415-253-3253
     Botsford Vicenta, ernestine@gmail.com, 716-282-1443
@@ -36,38 +36,8 @@ You can also install gems individually (e.g. `gem install ffaker`), but `bundle`
 
 Now dive into [FFaker's Documentation](https://github.com/ffaker/ffaker/blob/master/REFERENCE.md)!
 
-####Pro Tip: Requiring Gems & the Ruby Console
-You're probably asking yourself, "how can I play with this ffaker data?". Why, in the Ruby Console of course!
-
-To launch the REPL, type:
-
-``` bash
-irb
-# or
-pry
-```
-
-Then require the `ffaker` gem in the REPL:
-
-``` ruby
-require 'ffaker'
-# your code here
-```
-
-But wait! We get all that for free if we just run:
-
-``` bash
-bundle console
-# when we get to Rails, we'll use:
-rails console
-```
-
-This will launch the Ruby REPL _AND_ require all the gems in our Gemfile.
-
-For more info about `bundler`, try running `bundle --help`.
-
 ### 3. Motivational Talks
-Printing to the terminal is all very nice, but we want to actually be able to play with the data. Let's convert our talks into _objects_. Modify `3_talks_data.rb` so that when you run it you see something along the lines of:
+Let's convert our talks into _objects_. Modify `3_talks_data.rb` so that when you run it you see something along the lines of:
 
 
     Speakers
@@ -127,8 +97,6 @@ We can also query for `all` the records in our pretend "database":
 ```ruby
 p Speaker.all
 ```
-
-**Stretch**: Can you model both a `Speaker` and a `Talk` object, using our simplified HacktiveRecord? (Hint: you may need to specify `speaker_id` on your talk objects so you know who they belong to!)
 
 #Ready for Rails!
 This has been a very light introduction to faking data, seeding your database, and working with models and inheritance. We're ready to dive into rails and work with ActiveRecord!
@@ -217,4 +185,4 @@ The `seed.rb` file is magic, because it _already_ knows about all of the models 
 
 **Can you seed your database with speaker and talks?**
 
-**Bonus**: can you do it with the FFaker gem?
+**Bonus**: can you do it with the FFaker gem? Hint: add the `ffaker` gem to your `Gemfile` with `gem ffaker`
