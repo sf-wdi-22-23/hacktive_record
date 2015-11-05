@@ -168,20 +168,20 @@ Talk.all
 **Pro-Tip**: Remember, when you're working in the console/repl `up-arrow` is your friend! (That and "hanging a dot" + "double-tabbing").
 
 ####5. Can you seed your database?
-Take a look at `db/seed.rb`.
+Take a look at `db/seeds.rb`.
 
 Add the following line:
 ```ruby
-p "Hello from seed.rb"
+p "Hello from seeds.rb"
 ```
 
 Now run the following from your command line (not the console!):
 ```bash
 rake db:seed
-# Hello from seed.rb
+# Hello from seeds.rb
 ```
 
-The `seed.rb` file is magic, because it _already_ knows about all of the models and gems in your rails app. All you have to do is tell it what data to create!
+The `seeds.rb` file is magic, because it _already_ knows about all of the models and gems in your rails app. All you have to do is tell it what data to create!
 
 **Can you seed your database with speaker and talks?**
 
