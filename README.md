@@ -2,11 +2,13 @@
 In this lab you will learn how to create seed data and use a simplified ORM dubbed "HacktiveRecord" (a pun on "ActiveRecord" which you'll be using in Rails). We will be working with the `FFaker` gem and modeling our data using classes and inheritance.
 
 ### 1. Hello World
+Start by cloning this project.
+
 When you run `ruby 1_hello.rb` you should see the following printed to your terminal:
 
     "Hello, my name is Generic Student and I live at 123 Rudimentary Dr, Oakland California. I lurv geraniums!"
 
-Modify the output to use __string interpolation__, and your own name, address, and most favoritest thing in teh world.
+Modify the output to use __string interpolation__, and your own name, address, and most favoritest thing in the world.
 
 Bonus: print it ten times.
 
@@ -65,24 +67,27 @@ This will launch the Ruby REPL _AND_ require all the gems in our Gemfile.
 For more info about `bundler`, try running `bundle --help`.
 
 ### 3. Motivational Talks
-Printing to the terminal is all very nice, but we want to actually be able to play with the data. Let's convert our talks into _objects_. When you run `3_talks_data.rb` you should see something along the lines of:
+Printing to the terminal is all very nice, but we want to actually be able to play with the data. Let's convert our talks into _objects_. Modify `3_talks_data.rb` so that when you run it you see something along the lines of:
 
 
-    Speakers:
-    {first: "Reichel", last: "Theresia", email: "giovani@gmail.com"}
-    {first: "Botsford", last: "Vicenta", email: "ernestine@gmail.com"}
-    {first: "Waters", last: "Nayeli", email: "annabel_walter@gmail.com"}
+    Speakers
+    ========
+    {:first_name=>"Joanny", :last_name=>"McGlynn", :email=>"rex_walsh@gmail.com", :phone=>"530-978-7619"}
+    {:first_name=>"Cordelia", :last_name=>"Olson", :email=>"mervin.wehner@gmail.com", :phone=>"357-304-4194"}
+    {:first_name=>"Benjamin", :last_name=>"Bashirian", :email=>"eusebio_gibson@gmail.com", :phone=>"474-759-7334"}
     ...
 
-    Talks:
-    {topic: "Organized secondary matrices", duration: 30}
-    {topic: "Networked incremental focus group", duration: 45}
-    {topic: "Optional cohesive middleware", duration: 60}
+    Talks
+    ========
+    {:topic=>"Assimilated object-oriented moderator", :duration=>75}
+    {:topic=>"Balanced fault-tolerant paradigm", :duration=>60}
+    {:topic=>"Configurable local alliance", :duration=>90}
+
     ...
 
 
 ### 4. Model Speakers
-Now let's take it up a notch. Instead of printing out objects, let's print out _instances_ of class `Speaker`. Modify `4_model_speakers.rb` so that when I run `ruby 4_model_speakers.rb`, you see the guts of our objects printed out like this:
+Now let's take it up a notch. Instead of printing out objects, let's print out _instances_ of class `Speaker`. Modify `4_model_speakers.rb` so that when you run `ruby 4_model_speakers.rb`, you see the guts of our objects printed out like this:
 
     #<Speaker:0x007fa86225cfa8 @first_name="Herman", @last_name="Delia", @email="charlene@yahoo.com", @id=1>
     #<Speaker:0x007fa86225cc60 @first_name="Kessler", @last_name="George", @email="bernie@hotmail.com", @id=2>
@@ -97,7 +102,7 @@ p speaker
 `puts` calls `to_s` on the object and generally returns a readable version of the object. `p` is equivalent to `puts`, but with the inspect method called instead of the `to_s`. So with `p` we will see the difference between "2" and 2. This method is better for debugging.
 
 ### 5. Hacktive Record
-Now we're going to play with a super-simplified version of Active Record I've dubbed "HacktiveRecord". HacktiveRecord will give our models the ability to `save`, `create` and find `all` records (or "instances") of our class.
+Now we're going to play with a super-simplified version of Active Record I've dubbed "HacktiveRecord". HacktiveRecord (defined in `hacktive_record.rb`) will give our models the ability to `save`, `create` and find `all` records (or "instances") of our class.
 
 Let's start by modifying our `Speaker` class so that it inherits from `HacktiveRecord::Base`.
 
@@ -120,7 +125,7 @@ reichel = Speaker.create({first: "Reichel", last: "Theresia", email: "giovani@gm
 
 We can also query for `all` the records in our pretend "database":
 ```ruby
-puts Speaker.all
+p Speaker.all
 ```
 
 **Stretch**: Can you model both a `Speaker` and a `Talk` object, using our simplified HacktiveRecord? (Hint: you may need to specify `speaker_id` on your talk objects so you know who they belong to!)
